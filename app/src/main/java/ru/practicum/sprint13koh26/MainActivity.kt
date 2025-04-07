@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.practicum.sprint13koh26.CartItem
 import ru.practicum.sprint13koh26.databinding.ActivityMainBinding
 import java.util.UUID
 
@@ -107,6 +106,11 @@ class MainActivity : AppCompatActivity() {
                         it
                     }
                 }
+
+                var badge = binding.bottomNavigation.getOrCreateBadge(R.id.cart)
+                badge.isVisible = true
+                badge.number = cartItems.size
+
                 catalogItemsAdapter.setItems(catalogItems)
             }
             onAddCountClickListener = OnAddCountClickListener { item ->
@@ -186,11 +190,13 @@ class MainActivity : AppCompatActivity() {
                 ScreenMode.CATALOG -> {
                     binding.catalogContainer.visibility = View.VISIBLE
                     binding.cartContainer.visibility = View.GONE
+                    binding.toolbar.setTitle(R.string.catalog_title)
                 }
 
                 ScreenMode.CART -> {
                     binding.catalogContainer.visibility = View.GONE
                     binding.cartContainer.visibility = View.VISIBLE
+                    binding.toolbar.setTitle(R.string.cart_title)
                 }
             }
             currentScreenMode = newScreenMode
