@@ -35,7 +35,6 @@ class CatalogItemViewHolder(
         binding.title.text = viewData.item.name
         binding.price.text = String.format("%.2f %s", viewData.item.price / 100.0, viewData.item.unit)
 
-
         if (viewData.count != null) {
             binding.addToCart.visibility = View.GONE
             binding.countContainer.visibility = View.VISIBLE
