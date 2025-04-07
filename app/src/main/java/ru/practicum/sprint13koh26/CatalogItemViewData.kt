@@ -33,7 +33,6 @@ class CatalogItemViewHolder(
             .load(viewData.item.imageUrl)
             .into(binding.image)
         binding.title.text = viewData.item.name
-//        binding.price.text = "${viewData.item.price / 100 }/${viewData.item.unit}"
         binding.price.text = String.format("%.2f %s", viewData.item.price / 100.0, viewData.item.unit)
 
 
