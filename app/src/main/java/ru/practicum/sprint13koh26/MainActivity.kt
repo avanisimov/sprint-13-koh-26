@@ -106,6 +106,11 @@ class MainActivity : AppCompatActivity() {
                         it
                     }
                 }
+
+                var badge = binding.bottomNavigation.getOrCreateBadge(R.id.cart)
+                badge.isVisible = true
+                badge.number = cartItems.size
+
                 catalogItemsAdapter.setItems(catalogItems)
             }
             onAddCountClickListener = OnAddCountClickListener { item ->
